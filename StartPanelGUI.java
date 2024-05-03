@@ -31,49 +31,49 @@ public class StartPanelGUI {
     backgroundLabelStart.setVisible(true);
     startPanel.add(backgroundLabelStart);
 
-    //Textfield Konto RLinks
+    // Textfield Konto RLinks
     JTextField textFieldL = new JTextField("Konto :");
     textFieldL.setBounds(290, 10, 100, 30);
     textFieldL.setEditable(false);
     textFieldL.setVisible(false);
     startPanel.add(textFieldL);
 
-    //Textfield Konto  Rechts
+    // Textfield Konto Rechts
     JTextField textFieldR = new JTextField("Konto :");
     textFieldR.setBounds(1500, 10, 100, 30);
     textFieldR.setEditable(false);
     textFieldR.setVisible(false);
     startPanel.add(textFieldR);
 
-    //Textfield Einsatz Topf
+    // Textfield Einsatz Topf
     JTextField textFieldEinsatz = new JTextField("Einsatz : ");
-    textFieldEinsatz.setBounds(900,930,100,30);
+    textFieldEinsatz.setBounds(900, 930, 100, 30);
     textFieldEinsatz.setEditable(false);
     textFieldEinsatz.setVisible(false);
     startPanel.add(textFieldEinsatz);
 
-    //Textfield Anzahl Wuerfe Links
-    JTextField textFieldAnzahlWuerfeL = new JTextField(" Anzahl Würfe" );
-    textFieldAnzahlWuerfeL.setBounds(19,900,100,30);
+    // Textfield Anzahl Wuerfe Links
+    JTextField textFieldAnzahlWuerfeL = new JTextField(" Anzahl Würfe");
+    textFieldAnzahlWuerfeL.setBounds(10, 900, 100, 30);
     textFieldAnzahlWuerfeL.setEditable(false);
     textFieldAnzahlWuerfeL.setVisible(false);
     startPanel.add(textFieldAnzahlWuerfeL);
 
-    //Textfield Anzahl Wuerfe Rechts
-    JTextField textFieldAnzahlWuerfeR = new JTextField(" Anzahl Würfe" );
-    textFieldAnzahlWuerfeR.setBounds(1780,900,100,30);
+    // Textfield Anzahl Wuerfe Rechts
+    JTextField textFieldAnzahlWuerfeR = new JTextField(" Anzahl Würfe");
+    textFieldAnzahlWuerfeR.setBounds(1780, 900, 100, 30);
     textFieldAnzahlWuerfeR.setEditable(false);
     textFieldAnzahlWuerfeR.setVisible(false);
     startPanel.add(textFieldAnzahlWuerfeR);
 
-    //Textfield Augenzahl
+    // Textfield Augenzahl
     JTextField textFieldAugenzahl = new JTextField("Augenzahl : ");
-    textFieldAugenzahl.setBounds(900,30, 100, 30);
+    textFieldAugenzahl.setBounds(900, 30, 100, 30);
     textFieldAugenzahl.setEditable(false);
     textFieldAugenzahl.setVisible(false);
     startPanel.add(textFieldAugenzahl);
 
-    //Wuerfelbutton
+    // Wuerfelbutton
     JButton wuerfelButton = new JButton();
     wuerfelButton.setText("Wuerfeln");
     wuerfelButton.setBounds(1500, 900, 100, 30);
@@ -106,6 +106,12 @@ public class StartPanelGUI {
     startPanel.add(coinButtonR3);
     startPanel.add(coinButtonR4);
     startPanel.add(coinButtonR5);
+
+    // ZurückButton
+    JButton zButton = new JButton("Zurück");
+    zButton.setBounds(10, 950, 100, 30);
+    zButton.setVisible(false);
+    startPanel.add(zButton);
 
     // Linke Seite Buttons
     JButton spielerbuttonL1 = new JButton();
@@ -157,11 +163,11 @@ public class StartPanelGUI {
         textFieldAnzahlWuerfeL.setVisible(true);
         textFieldAnzahlWuerfeR.setVisible(true);
         textFieldAugenzahl.setVisible(true);
-  
+        zButton.setVisible(true);
 
         // Rechte Seite popup der Conbutton, wenn button spielerLButtonR1 gedrückt
         spielerbuttonR1.addActionListener(new ActionListener() {
-          public void actionPerformed(ActionEvent a) {
+          public void actionPerformed(ActionEvent b) {
             coinButtonR2.setVisible(true);
             coinButtonR2.setBounds(1780, 50, 100, 30);
 
@@ -177,9 +183,27 @@ public class StartPanelGUI {
           }
         });
 
+        zButton.addActionListener(new ActionListener() {
+          public void actionPerformed(ActionEvent d) {
+            zButton.setVisible(false);
+            spielerbuttonR1.setVisible(false);
+            spielerbuttonL1.setVisible(false);
+            startButton.setVisible(true);
+            backgroundLabel.setVisible(true);
+            backgroundLabelStart.setVisible(true);
+            wuerfelButton.setVisible(false);
+            textFieldR.setVisible(false);
+            textFieldL.setVisible(false);
+            textFieldEinsatz.setVisible(false);
+            textFieldAnzahlWuerfeL.setVisible(false);
+            textFieldAnzahlWuerfeR.setVisible(false);
+            textFieldAugenzahl.setVisible(false);
+          }
+        });
+
         // Linke Seite popup der Conbutton, wenn button spielerLButtonL1 gedrückt
         spielerbuttonL1.addActionListener(new ActionListener() {
-          public void actionPerformed(ActionEvent e) {
+          public void actionPerformed(ActionEvent c) {
 
             coinButtonL2.setBounds(10, 50, 100, 30);
             coinButtonL2.setVisible(true);
