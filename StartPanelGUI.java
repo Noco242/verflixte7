@@ -1,4 +1,6 @@
 import javax.swing.*;
+
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -148,6 +150,16 @@ public class StartPanelGUI {
     backgroundLabel.setVisible(false);
     startPanel.add(backgroundLabel);
 
+    // Wuerfel1 Bild 
+    ImageIcon dice1 = new ImageIcon("D:/EGK/GUI/dice1.png");
+    Image img = dice1.getImage();
+    Image newImg = img.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
+    ImageIcon newDice1 = new ImageIcon(newImg);
+    JLabel dice1Label = new JLabel(newDice1);
+    dice1Label.setBounds(540, 640, 100, 100);
+    dice1Label.setVisible(false);
+    startPanel.add(dice1Label);
+
     // Popups wenn Startbutton gedrückt
     startButton.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent a) {
@@ -183,6 +195,13 @@ public class StartPanelGUI {
           }
         });
 
+        wuerfelButton.addActionListener(new ActionListener() {
+          public void actionPerformed(ActionEvent w) {
+            dice1Label.setVisible(true);
+            startPanel.setComponentZOrder(dice1Label, 0);
+          }
+        });
+
         zButton.addActionListener(new ActionListener() {
           public void actionPerformed(ActionEvent d) {
             zButton.setVisible(false);
@@ -198,6 +217,14 @@ public class StartPanelGUI {
             textFieldAnzahlWuerfeL.setVisible(false);
             textFieldAnzahlWuerfeR.setVisible(false);
             textFieldAugenzahl.setVisible(false);
+            coinButtonR2.setVisible(false);
+            coinButtonR3.setVisible(false);
+            coinButtonR4.setVisible(false);
+            coinButtonR5.setVisible(false);
+            coinButtonL2.setVisible(false);
+            coinButtonL3.setVisible(false);
+            coinButtonL4.setVisible(false);
+            coinButtonL5.setVisible(false);
           }
         });
 
