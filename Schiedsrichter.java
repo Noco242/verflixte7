@@ -4,6 +4,7 @@ public class Schiedsrichter {
  private Spieler spieler1;
  private Spieler spieler2;   
  private Spieler beginner;
+ private Computer comp;
  public Spieler nichtBeginner;
  private boolean compaktiv = false;
 
@@ -31,8 +32,11 @@ public class Schiedsrichter {
 
     if (Computeraktiv=true) {
         this.spieler1 = spieler_1;
+        this.spieler1.compgegner = comp_1;
         this.spieler2 = comp_1;
+        this.comp = comp_1;
         this.compaktiv = true;
+
     }else
     
     this.spieler1 = spieler_1;
@@ -78,6 +82,19 @@ public class Schiedsrichter {
             
         }  
         }
+
+        this.startcomp();
+
+    }
+
+
+
+    public void startcomp(){
+
+        if (compaktiv && this.beginner == spieler2) {
+            this.comp.compdurchgangstart(); 
+        }
+
 
     }
     

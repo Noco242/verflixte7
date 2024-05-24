@@ -13,6 +13,7 @@ public class Spieler {
   public int punkte;
   private int vermoegen;
   public int wurfAnzahl;
+  public Computer compgegner;
   public Topf topf;
   public Wuerfel wuerfel1;
   public Wuerfel wuerfel2;
@@ -56,6 +57,7 @@ public class Spieler {
       this.punkte = this.punkte - 7;
       schiedsrichter.Auswerten();
     }
+    this.compgegner.compdurchgangstart();
   }
 
   // Methode, die den Topf leert und das Vermögen des Spielers aktualisiert
