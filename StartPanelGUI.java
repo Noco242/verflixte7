@@ -1,5 +1,7 @@
 import javax.swing.*;
+import javax.swing.plaf.FontUIResource;
 
+import java.awt.Color;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -16,11 +18,19 @@ public class StartPanelGUI {
     startPanel.setSize(1920, 1080);
     startPanel.setLayout(null);
 
-    // StartButton
-    JButton startButton = new JButton("Start");
+    // StartButton ( 2 Spieler )
+    JButton startButton = new JButton("2 Spieler");
     startPanel.add(startButton);
-    startButton.setBounds(880, 440, 150, 150);
+    startButton.setBounds(790, 440, 350, 90);
+    startButton.setFont(new FontUIResource("Bahnschrift", 3, 50));
     startButton.setVisible(true);
+
+    // Computer Modus Button
+    JButton cpButton = new JButton("Computer");
+    startPanel.add(cpButton);
+    cpButton.setBounds(790, 550, 350, 90);
+    cpButton.setFont(new FontUIResource("Bahnschrift", 3, 50));
+    cpButton.setVisible(true);
 
     // App Icon
     ImageIcon appIcon = new ImageIcon("icon.png");
@@ -35,7 +45,10 @@ public class StartPanelGUI {
 
     // Textfield Konto RLinks
     JTextField textFieldL = new JTextField("Konto :");
-    textFieldL.setBounds(290, 10, 100, 30);
+    textFieldL.setOpaque(false);
+    textFieldL.setForeground(new Color(255,255,255));
+    textFieldL.setFont(new FontUIResource("Bahnschrift", 3, 20));
+    textFieldL.setBounds(290, 10, 150, 30);
     textFieldL.setEditable(false);
     textFieldL.setVisible(false);
     startPanel.add(textFieldL);
@@ -89,18 +102,22 @@ public class StartPanelGUI {
 
     JButton coinButtonR2 = new JButton();
     coinButtonR2.setText(" 1000 Coins ");
+    coinButtonR2.setBounds(1780, 50, 100, 30);
     coinButtonR2.setVisible(false);
 
     JButton coinButtonR3 = new JButton();
     coinButtonR3.setText(" 200 Coins ");
+    coinButtonR3.setBounds(1780, 90, 100, 30);
     coinButtonR3.setVisible(false);
 
     JButton coinButtonR4 = new JButton();
     coinButtonR4.setText(" 100 Coins ");
+    coinButtonR4.setBounds(1780, 130, 100, 30);
     coinButtonR4.setVisible(false);
 
     JButton coinButtonR5 = new JButton();
     coinButtonR5.setText(" All In ");
+    coinButtonR5.setBounds(1780, 170, 100, 30);
     coinButtonR5.setVisible(false);
 
     startPanel.add(spielerbuttonR1);
@@ -123,18 +140,22 @@ public class StartPanelGUI {
 
     JButton coinButtonL2 = new JButton();
     coinButtonL2.setText(" 1000 Coins ");
+    coinButtonL2.setBounds(10, 50, 100, 30);
     coinButtonL2.setVisible(false);
 
     JButton coinButtonL3 = new JButton();
     coinButtonL3.setText(" 200 Coins ");
+    coinButtonL3.setBounds(10, 90, 100, 30);
     coinButtonL3.setVisible(false);
 
     JButton coinButtonL4 = new JButton();
     coinButtonL4.setText(" 100 Coins ");
+    coinButtonL4.setBounds(10, 130, 100, 30);
     coinButtonL4.setVisible(false);
 
     JButton coinButtonL5 = new JButton();
     coinButtonL5.setText(" All In ");
+    coinButtonL5.setBounds(10, 170, 100, 30);
     coinButtonL5.setVisible(false);
 
     startPanel.add(spielerbuttonL1);
@@ -150,15 +171,34 @@ public class StartPanelGUI {
     backgroundLabel.setVisible(false);
     startPanel.add(backgroundLabel);
 
-    // Wuerfel1 Bild 
+    // Wuerfel1 Bild
     ImageIcon dice1 = new ImageIcon("D:/EGK/GUI/dice1.png");
     Image img = dice1.getImage();
     Image newImg = img.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
     ImageIcon newDice1 = new ImageIcon(newImg);
     JLabel dice1Label = new JLabel(newDice1);
-    dice1Label.setBounds(540, 640, 100, 100);
+    dice1Label.setBounds(780, 430, 100, 100);
     dice1Label.setVisible(false);
     startPanel.add(dice1Label);
+
+    cpButton.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent e) {
+        spielerbuttonR1.setVisible(true);
+        spielerbuttonL1.setVisible(true);
+        startButton.setVisible(false);
+        backgroundLabel.setVisible(true);
+        backgroundLabelStart.setVisible(false);
+        wuerfelButton.setVisible(true);
+        textFieldR.setVisible(true);
+        textFieldL.setVisible(true);
+        textFieldEinsatz.setVisible(true);
+        textFieldAnzahlWuerfeL.setVisible(true);
+        textFieldAnzahlWuerfeR.setVisible(true);
+        textFieldAugenzahl.setVisible(true);
+        zButton.setVisible(true);
+        cpButton.setVisible(false);
+      }
+    });
 
     // Popups wenn Startbutton gedrückt
     startButton.addActionListener(new ActionListener() {
@@ -176,80 +216,68 @@ public class StartPanelGUI {
         textFieldAnzahlWuerfeR.setVisible(true);
         textFieldAugenzahl.setVisible(true);
         zButton.setVisible(true);
-
-        // Rechte Seite popup der Conbutton, wenn button spielerLButtonR1 gedrückt
-        spielerbuttonR1.addActionListener(new ActionListener() {
-          public void actionPerformed(ActionEvent b) {
-            coinButtonR2.setVisible(true);
-            coinButtonR2.setBounds(1780, 50, 100, 30);
-
-            coinButtonR3.setVisible(true);
-            coinButtonR3.setBounds(1780, 90, 100, 30);
-
-            coinButtonR4.setVisible(true);
-            coinButtonR4.setBounds(1780, 130, 100, 30);
-
-            coinButtonR5.setVisible(true);
-            coinButtonR5.setBounds(1780, 170, 100, 30);
-
-          }
-        });
-
-        wuerfelButton.addActionListener(new ActionListener() {
-          public void actionPerformed(ActionEvent w) {
-            dice1Label.setVisible(true);
-            startPanel.setComponentZOrder(dice1Label, 0);
-          }
-        });
-
-        zButton.addActionListener(new ActionListener() {
-          public void actionPerformed(ActionEvent d) {
-            zButton.setVisible(false);
-            spielerbuttonR1.setVisible(false);
-            spielerbuttonL1.setVisible(false);
-            startButton.setVisible(true);
-            backgroundLabel.setVisible(true);
-            backgroundLabelStart.setVisible(true);
-            wuerfelButton.setVisible(false);
-            textFieldR.setVisible(false);
-            textFieldL.setVisible(false);
-            textFieldEinsatz.setVisible(false);
-            textFieldAnzahlWuerfeL.setVisible(false);
-            textFieldAnzahlWuerfeR.setVisible(false);
-            textFieldAugenzahl.setVisible(false);
-            coinButtonR2.setVisible(false);
-            coinButtonR3.setVisible(false);
-            coinButtonR4.setVisible(false);
-            coinButtonR5.setVisible(false);
-            coinButtonL2.setVisible(false);
-            coinButtonL3.setVisible(false);
-            coinButtonL4.setVisible(false);
-            coinButtonL5.setVisible(false);
-          }
-        });
-
-        // Linke Seite popup der Conbutton, wenn button spielerLButtonL1 gedrückt
-        spielerbuttonL1.addActionListener(new ActionListener() {
-          public void actionPerformed(ActionEvent c) {
-
-            coinButtonL2.setBounds(10, 50, 100, 30);
-            coinButtonL2.setVisible(true);
-
-            coinButtonL3.setVisible(true);
-            coinButtonL3.setBounds(10, 90, 100, 30);
-
-            coinButtonL4.setVisible(true);
-            coinButtonL4.setBounds(10, 130, 100, 30);
-
-            coinButtonL5.setVisible(true);
-            coinButtonL5.setBounds(10, 170, 100, 30);
-
-          }
-        });
+        cpButton.setVisible(false);
       }
     });
+
+    // Rechte Seite popup der Conbutton, wenn button spielerLButtonR1 gedrückt
+    spielerbuttonR1.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent b) {
+        coinButtonR2.setVisible(true);
+        coinButtonR3.setVisible(true);
+        coinButtonR4.setVisible(true);
+        coinButtonR5.setVisible(true);
+      }
+    });
+
+    wuerfelButton.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent w) {
+        dice1Label.setVisible(true);
+        startPanel.setComponentZOrder(dice1Label, 0);
+      }
+    });
+
+    zButton.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent d) {
+        zButton.setVisible(false);
+        spielerbuttonR1.setVisible(false);
+        spielerbuttonL1.setVisible(false);
+        startButton.setVisible(true);
+        backgroundLabel.setVisible(true);
+        backgroundLabelStart.setVisible(true);
+        wuerfelButton.setVisible(false);
+        textFieldR.setVisible(false);
+        textFieldL.setVisible(false);
+        textFieldEinsatz.setVisible(false);
+        textFieldAnzahlWuerfeL.setVisible(false);
+        textFieldAnzahlWuerfeR.setVisible(false);
+        textFieldAugenzahl.setVisible(false);
+        coinButtonR2.setVisible(false);
+        coinButtonR3.setVisible(false);
+        coinButtonR4.setVisible(false);
+        coinButtonR5.setVisible(false);
+        coinButtonL2.setVisible(false);
+        coinButtonL3.setVisible(false);
+        coinButtonL4.setVisible(false);
+        coinButtonL5.setVisible(false);
+        dice1Label.setVisible(false);
+        cpButton.setVisible(true);
+      }
+    });
+
+    // Linke Seite popup der Conbutton, wenn button spielerLButtonL1 gedrückt
+    spielerbuttonL1.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent c) {
+        coinButtonL2.setVisible(true);
+        coinButtonL3.setVisible(true);
+        coinButtonL4.setVisible(true);
+        coinButtonL5.setVisible(true);
+      }
+    });
+
     startPanel.setVisible(true);
     frame.add(startPanel);
     frame.setVisible(true);
+
   }
 }
