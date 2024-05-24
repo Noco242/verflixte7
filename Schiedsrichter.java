@@ -5,6 +5,7 @@ public class Schiedsrichter {
  private Spieler spieler2;   
  private Spieler beginner;
  public Spieler nichtBeginner;
+ private boolean compaktiv = false;
 
  public Schiedsrichter() {        // Initialisierung der Spieler
     
@@ -12,19 +13,31 @@ public class Schiedsrichter {
     Wuerfel wuerfel1 = new Wuerfel();
     Wuerfel wuerfel2 = new Wuerfel();
 
-
     Spieler spieler_1 = new Spieler("spieler1", wuerfel1, wuerfel2, topf1, this);
     Spieler spieler_2 = new Spieler("spieler2", wuerfel1, wuerfel2, topf1, this);
 
-    
-    
-    
-    
-    
-    
+    this.spieler1 = spieler_1;
+    this.spieler2 = spieler_2;
+ }
+
+ public Schiedsrichter(boolean Computeraktiv) {        // Initialisierung der Spieler
+    Topf topf1 = new Topf();
+    Wuerfel wuerfel1 = new Wuerfel();
+    Wuerfel wuerfel2 = new Wuerfel();
+
+    Spieler spieler_1 = new Spieler("spieler1", wuerfel1, wuerfel2, topf1, this);
+    Spieler spieler_2 = new Spieler("spieler2", wuerfel1, wuerfel2, topf1, this);
+    Computer comp_1 = new Computer("Computer", wuerfel1, wuerfel2, topf1, this, spieler_1);
+
+    if (Computeraktiv=true) {
+        this.spieler1 = spieler_1;
+        this.spieler2 = comp_1;
+        this.compaktiv = true;
+    }else
     
     this.spieler1 = spieler_1;
-     this.spieler2 = spieler_2;
+    this.spieler2 = spieler_2;
+    
  }
 
  //Methode zum starten des Spiels
@@ -131,6 +144,17 @@ public class Schiedsrichter {
 
  public String getnichtbeginner(){
     return this.nichtBeginner.name;
+ }
+
+
+ public void gameReset(){
+    this.spieler1.playerreset();
+    this.spieler2.playerreset();
+    this.spieler1.wuerfel1.reset();
+    this.spieler1.wuerfel2.reset();
+    this.spieler1.topf.topfReset();
+    this.beginner = null;
+    this.nichtBeginner = null;
  }
 
 

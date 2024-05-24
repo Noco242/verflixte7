@@ -32,4 +32,9 @@ public class Topf {
     this.einsatz = this.einsatz + einsatz;
 
   }
+
+  public void topfReset(){
+    this.einsatz = 0;
+
+  }
 }
