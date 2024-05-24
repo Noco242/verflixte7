@@ -46,7 +46,7 @@ public class StartPanelGUI {
     // Textfield Konto RLinks
     JTextField textFieldL = new JTextField("Konto :");
     textFieldL.setOpaque(false);
-    textFieldL.setForeground(new Color(255,255,255));
+    textFieldL.setForeground(new Color(255, 255, 255));
     textFieldL.setFont(new FontUIResource("Bahnschrift", 3, 20));
     textFieldL.setBounds(290, 10, 150, 30);
     textFieldL.setEditable(false);
@@ -55,35 +55,50 @@ public class StartPanelGUI {
 
     // Textfield Konto Rechts
     JTextField textFieldR = new JTextField("Konto :");
-    textFieldR.setBounds(1500, 10, 100, 30);
+    textFieldR.setBounds(1500, 10, 150, 30);
+    textFieldR.setOpaque(false);
+    textFieldR.setForeground(new Color(255, 255, 255));
+    textFieldR.setFont(new FontUIResource("Bahnschrift", 3, 20));
     textFieldR.setEditable(false);
     textFieldR.setVisible(false);
     startPanel.add(textFieldR);
 
     // Textfield Einsatz Topf
     JTextField textFieldEinsatz = new JTextField("Einsatz : ");
-    textFieldEinsatz.setBounds(900, 930, 100, 30);
+    textFieldEinsatz.setOpaque(false);
+    textFieldEinsatz.setForeground(new Color(255, 255, 255));
+    textFieldEinsatz.setFont(new FontUIResource("Bahnschrift", 3, 20));
+    textFieldEinsatz.setBounds(900, 930, 150, 30);
     textFieldEinsatz.setEditable(false);
     textFieldEinsatz.setVisible(false);
     startPanel.add(textFieldEinsatz);
 
     // Textfield Anzahl Wuerfe Links
-    JTextField textFieldAnzahlWuerfeL = new JTextField(" Anzahl Würfe");
-    textFieldAnzahlWuerfeL.setBounds(10, 900, 100, 30);
+    JTextField textFieldAnzahlWuerfeL = new JTextField("Würfe : ");
+    textFieldAnzahlWuerfeL.setOpaque(false);
+    textFieldAnzahlWuerfeL.setForeground(new Color(255, 255, 255));
+    textFieldAnzahlWuerfeL.setFont(new FontUIResource("Bahnschrift", 3, 20));
+    textFieldAnzahlWuerfeL.setBounds(10, 900, 150, 30);
     textFieldAnzahlWuerfeL.setEditable(false);
     textFieldAnzahlWuerfeL.setVisible(false);
     startPanel.add(textFieldAnzahlWuerfeL);
 
     // Textfield Anzahl Wuerfe Rechts
-    JTextField textFieldAnzahlWuerfeR = new JTextField(" Anzahl Würfe");
-    textFieldAnzahlWuerfeR.setBounds(1780, 900, 100, 30);
+    JTextField textFieldAnzahlWuerfeR = new JTextField("Würfe : ");
+    textFieldAnzahlWuerfeR.setBounds(1740, 900, 150, 30);
+    textFieldAnzahlWuerfeR.setOpaque(false);
+    textFieldAnzahlWuerfeR.setForeground(new Color(255, 255, 255));
+    textFieldAnzahlWuerfeR.setFont(new FontUIResource("Bahnschrift", 3, 20));
     textFieldAnzahlWuerfeR.setEditable(false);
     textFieldAnzahlWuerfeR.setVisible(false);
     startPanel.add(textFieldAnzahlWuerfeR);
 
     // Textfield Augenzahl
     JTextField textFieldAugenzahl = new JTextField("Augenzahl : ");
-    textFieldAugenzahl.setBounds(900, 30, 100, 30);
+    textFieldAugenzahl.setBounds(900, 30, 160, 30);
+    textFieldAugenzahl.setOpaque(false);
+    textFieldAugenzahl.setForeground(new Color(255, 255, 255));
+    textFieldAugenzahl.setFont(new FontUIResource("Bahnschrift", 3, 20));
     textFieldAugenzahl.setEditable(false);
     textFieldAugenzahl.setVisible(false);
     startPanel.add(textFieldAugenzahl);
@@ -91,7 +106,21 @@ public class StartPanelGUI {
     // Wuerfelbutton
     JButton wuerfelButton = new JButton();
     wuerfelButton.setText("Wuerfeln");
-    wuerfelButton.setBounds(1500, 900, 100, 30);
+    wuerfelButton.setBounds(900, 700, 205, 105);
+    wuerfelButton.setContentAreaFilled(false);
+    wuerfelButton.setBorderPainted(false);
+    wuerfelButton.setFocusPainted(false);;
+  
+    //Hintergrund des buttons
+    ImageIcon rollDice = new ImageIcon("D:/EGK/GUI/rollDice.png");
+    Image imgRDice = rollDice.getImage();
+    Image rDice = imgRDice.getScaledInstance(120, 120, Image.SCALE_SMOOTH);
+    ImageIcon newRDice = new ImageIcon(rDice);
+    wuerfelButton.setIcon(newRDice);
+    wuerfelButton.setHorizontalTextPosition(JButton.CENTER);
+    wuerfelButton.setVerticalTextPosition(JButton.CENTER);
+
+
     startPanel.add(wuerfelButton);
 
     // Rechte Seite Buttons
