@@ -11,26 +11,20 @@ public class Spieler {
   // Attribute der Klasse Spieler
   public String name;
   public int punkte;
-  private int vermoegen;
+  public int vermoegen;
   public int wurfAnzahl;
   public Computer compgegner;
   public Topf topf;
   public Wuerfel wuerfel1;
   public Wuerfel wuerfel2;
   private boolean darfWuerfeln = false;
-  private boolean siebengewuerfelt = false;
+  public boolean siebengewuerfelt = false;
   private Schiedsrichter schiedsrichter = null;
 
   // hier im spaeteren Verlauf noch das Attribut darfWuerfeln dazunehmen
 
   // Konstruktor der Klasse Spieler
-  public Spieler(
-    String name,
-    Wuerfel wuerfel1,
-    Wuerfel wuerfel2,
-    Topf topf,
-    Schiedsrichter schiedsrichter
-  ) {
+  public Spieler(String name,Wuerfel wuerfel1,Wuerfel wuerfel2,Topf topf,Schiedsrichter schiedsrichter) {
     this.name = name;
     this.wuerfel1 = wuerfel1; // Setzt den ersten Würfel
     this.wuerfel2 = wuerfel2; // Setzt den zweiten Würfel
@@ -57,7 +51,7 @@ public class Spieler {
       this.punkte = this.punkte - 7;
       schiedsrichter.Auswerten();
     }
-    this.compgegner.compdurchgangstart();
+ 
   }
 
   // Methode, die den Topf leert und das Vermögen des Spielers aktualisiert

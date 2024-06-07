@@ -7,7 +7,7 @@
 
 public class Topf {
 
-  private int einsatz;
+  public int einsatz;
 
   public Topf() {
     // der Einsatz wird auf 0 gesetzt

@@ -1,4 +1,3 @@
-import java.util.Random;
 
 /**
  * Klasse Wuerfel
@@ -9,7 +8,7 @@ import java.util.Random;
 
 public class Wuerfel
 {
-    private int punkte;
+    public int punkte;
 
     public Wuerfel()
     {

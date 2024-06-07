@@ -24,11 +24,11 @@ public class Computer extends Spieler{
                wuerfeln(); 
         
 
-        if (gegner.wurfAnzahl < this.wurfAnzahl || this.punkte > gegner.punkte) {
+        if (gegner.wurfAnzahl < this.wurfAnzahl || this.punkte < gegner.punkte) {
             
             stop = true;
 
-
+            break;
         }
 
     }
