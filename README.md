@@ -187,7 +187,7 @@ an dem weitergearbeitet, was erledigt sein musste.
 
 ## Was würden wir beim nächsten Projekt genauso und was anders machen (bezogen auf Organisation und Vorgehen)?
 
-**Genauso machen:**
+**Beibehalten:**
 -
 - Die Vorgehensweise beibehalten, sich in der Woche einmal für eine
         Doppelstunde zu treffen, war sehr effektiv.
@@ -197,7 +197,7 @@ an dem weitergearbeitet, was erledigt sein musste.
         Komplikationen auftraten. Dazu haben wir eine WhatsApp- und eine TeamsGruppe    genutzt, um von zuhause aus zu kommunizieren.
 
 
-**Anders machen:**
+**Ändern:**
 - 
 - Mehr Planung. Damit ist gemeint, dass wir, bevor wir anfangen, uns mehr
         Gedanken über unser Programm machen und detaillierter wissen, was unser
