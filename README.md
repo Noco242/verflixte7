@@ -150,7 +150,7 @@ sowohl kleinere grafische Fehler als auch funktionale Probleme.
 
 ## Welches Software-Entwicklungsmodell passt am besten zu unserer Vorgehensweise?
 
-Unsere Gruppe hat am besten nach einer abgeänderten Version des ScrumEntwicklungsmodells gearbeitet. Im `Scrum-Entwicklungsmodell` wird in Sprints
+Unsere Gruppe hat am besten nach einer leicht abgeänderten Version des Scrum-Entwicklungsmodells gearbeitet. Im `Scrum-Entwicklungsmodell` wird in Sprints
 gearbeitet, das bedeutet, Entwicklungen werden schrittweise verfeinert. Wir haben
 uns einmal in der Woche in der Schule für eine Doppelstunde zusammengesetzt und
 zusammen an der Software gearbeitet. Dazu hatten wir die Gruppe in verschiedene
@@ -209,7 +209,7 @@ an dem weitergearbeitet, was erledigt sein musste.
 
 # Fazit
 
-Insgesamt war das Projekt ein großer Erfolg, und die Anwendung des ScrumEntwicklungsmodells erwies sich als äußerst passend für unsere Gruppe. Die
+Insgesamt war das Projekt ein großer Erfolg, und die Anwendung des Scrum-Entwicklungsmodells erwies sich als äußerst passend für unsere Gruppe. Die
 wöchentlichen Treffen für eine Doppelstunde ermöglichten bessere Fortschritte und
 halfen uns, den Überblick zu behalten und Fehler frühzeitig zu erkennen. Die
 Flexibilität innerhalb unserer Gruppe war sehr gut, da jeder jederzeit über WhatsApp
