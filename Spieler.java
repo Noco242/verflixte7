@@ -77,9 +77,12 @@ public class Spieler {
 
   // Methode, die es dem Spieler ermöglicht, zu würfeln
   public void wuerfeln() {
+    int wuerfegeggner = 0;
+
     //Überprüfe, ob der Spieler darfWuerfeln hat
-    if (darfWuerfeln == true) {
-      wuerfel1.rollen();
+    
+    if (darfWuerfelnAuswertung() == true) {
+       wuerfel1.rollen();
       wuerfel2.rollen();
 
       if (wuerfel1.punktzahlAngeben() + wuerfel2.punktzahlAngeben() == 7) { // Falls 7 gewürfelt durchgang vorbei
@@ -95,6 +98,8 @@ public class Spieler {
 
         this.wurfAnzahl = this.wurfAnzahl + 1;
       }
+    } else {
+      schiedsrichter.Auswerten();
     }
   }
 
@@ -127,4 +132,28 @@ public class Spieler {
     this.darfWuerfeln = false;
     this.siebengewuerfelt = false;
   }
+
+
+  
+
+  public boolean darfWuerfelnAuswertung() {
+    if (darfWuerfeln == true) {
+        if (schiedsrichter.ultbeginner == this) {
+            return true; // If the player is the beginner, they can roll as many times as they want
+        } else {
+            int opponentRollCount = getOpponentRollCount();
+            
+            return this.wurfAnzahl < opponentRollCount; // If the player has rolled less than or equal to the opponent's roll count, they can roll again
+        }
+    }
+    return false; // If darfWuerfeln is false, the player cannot roll
+}
+
+public int getOpponentRollCount() {
+    if (schiedsrichter.spieler1 == this) {
+        return schiedsrichter.spieler2.wurfAnzahl;
+    } else {
+        return schiedsrichter.spieler1.wurfAnzahl;
+    }
+}
 }

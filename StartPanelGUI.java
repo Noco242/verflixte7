@@ -329,7 +329,7 @@ public class StartPanelGUI {
             dEndButtonR.setVisible(false);
 
             spielerbuttonL1.setVisible(true);
-            textFieldAugenzahl.setText("Augenzahl 7 : ");
+            textFieldAugenzahl.setText("Augenzahl : 7");
 
             schiedsrichter.Auswerten();
             schiedsrichter.spielStarten();
@@ -360,7 +360,7 @@ public class StartPanelGUI {
             dEndButtonL.setVisible(false);
 
             spielerbuttonL1.setVisible(true);
-            textFieldAugenzahl.setText("Augenzahl 7 : ");
+            textFieldAugenzahl.setText("Augenzahl: 7");
 
             schiedsrichter.Auswerten();
             schiedsrichter.spielStarten();

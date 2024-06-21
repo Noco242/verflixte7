@@ -9,6 +9,7 @@ public class Schiedsrichter {
   public Wuerfel wuerfel1;
   public Wuerfel wuerfel2;
   public boolean compaktiv = false;
+  public Spieler ultbeginner;
 
   public Schiedsrichter() { // Initialisierung der Spieler
     this.topf1 = new Topf();
@@ -86,9 +87,11 @@ public class Schiedsrichter {
       if (wert == 1) {
         this.nichtBeginner = this.spieler1;
         this.beginner = this.spieler2;
+        this.ultbeginner = this.spieler2;
       } else {
         this.nichtBeginner = this.spieler2;
         this.beginner = this.spieler1;
+        this.ultbeginner = this.spieler1;
       }
       // Den Spieler, der nicht beginnt, festlegen
       if (this.nichtBeginner == this.spieler1) {
