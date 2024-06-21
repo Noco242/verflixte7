@@ -98,8 +98,6 @@ public class Spieler {
 
         this.wurfAnzahl = this.wurfAnzahl + 1;
       }
-    } else {
-      schiedsrichter.Auswerten();
     }
   }
 

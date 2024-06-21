@@ -10,11 +10,37 @@ public class Schiedsrichter {
   public Wuerfel wuerfel2;
   public boolean compaktiv = false;
   public Spieler ultbeginner;
+  public StartPanelGUI GUI;
 
   public Schiedsrichter() { // Initialisierung der Spieler
     this.topf1 = new Topf();
     this.wuerfel1 = new Wuerfel();
     this.wuerfel2 = new Wuerfel();
+
+    Spieler spieler_1 = new Spieler(
+      "spieler1",
+      wuerfel1,
+      wuerfel2,
+      topf1,
+      this
+    );
+    Spieler spieler_2 = new Spieler(
+      "spieler2",
+      wuerfel1,
+      wuerfel2,
+      topf1,
+      this
+    );
+
+    this.spieler1 = spieler_1;
+    this.spieler2 = spieler_2;
+  }
+
+  public Schiedsrichter(StartPanelGUI GUI) { // Initialisierung der Spieler
+    this.topf1 = new Topf();
+    this.wuerfel1 = new Wuerfel();
+    this.wuerfel2 = new Wuerfel();
+    this.GUI = GUI;
 
     Spieler spieler_1 = new Spieler(
       "spieler1",
