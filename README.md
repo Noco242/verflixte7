@@ -1,5 +1,5 @@
 # Verflixte 7
-    - JP
+    - Jean Pierre
     - Noah
     - Mohammad
     - Asmen
@@ -13,13 +13,13 @@ zunächst darüber nachgedacht, wie wir am besten starten können.
 Unser erster Schritt bestand darin, alle Spielregeln gründlich durchzugehen, um
 genau zu verstehen, worauf wir beim Schreiben des Programms achten müssen.
 Für die erste Version war es vorgesehen, ein Objektdiagramm zu erstellen. Also
-setzten sich `Philipp` und `JP` an einen Tisch und begannen, das Spiel `Die verflixte 7`
+setzten sich `Philipp` und `Jean Pierre` an einen Tisch und begannen, das Spiel `Die verflixte 7`
 zu spielen, während `Asmen` Notizen machte, um später das Objektdiagramm zu
 erstellen.
 
 Nachdem `Asmen` das Objektdiagramm fertig gezeichnet hatte, haben wir festgelegt,
 wer welche Aufgaben übernimmt. Wir entschieden uns dafür, dass `Noah` und `Philipp`
-an der Software arbeiten, `JP` sich um die `GUI` kümmert und `Mohammad` und `Asmen`
+an der Software arbeiten, `Jean Pierre` sich um die `GUI` kümmert und `Mohammad` und `Asmen`
 das `Design` unseres Spiels gestalten.
 
 Während `Noah` und `Philipp` damit begannen, das Spiel zu entwickeln, fingen die
@@ -66,7 +66,7 @@ Benutzeroberfläche (`GUI`) weiter zu verbessern und neue Funktionen hinzuzufüg
 ## Verbesserungen in der Benutzeroberfläche und neue Funktionen
 
 
-`JP` konzentrierte sich auf die Optimierung der `GUI` und die Implementierung neuer
+`Jean Pierre` konzentrierte sich auf die Optimierung der `GUI` und die Implementierung neuer
 Funktionen. Dazu gehörte die Integration zusätzlicher Buttons und Textfelder in
 `Version 3`. `Noah` und `Philipp` überprüften währenddessen die Funktionsfähigkeit des
 Codes mithilfe von `UML-Diagrammen`. Diese Diagramme halfen uns, eine klare
@@ -75,7 +75,7 @@ sollten.
 
 Um die Platzierung der neuen Buttons und Textfelder zu planen, fertigten wir mehrere
 Skizzen an. Diese halfen uns, einen groben Überblick über unsere Vorstellungen zu
-bekommen. `JP` recherchierte zudem in verschiedenen Foren, um herauszufinden,
+bekommen. `Jean Pierre` recherchierte zudem in verschiedenen Foren, um herauszufinden,
 wie die Form der Buttons angepasst werden kann, um eine ansprechende und
 funktionale Benutzeroberfläche zu gewährleisten.
 
@@ -112,7 +112,7 @@ und Vorstellungen ein großes Stück näher.
 
 ## Anpassungen und neue Funktionen in Version 4
 
-Mit dem Start von `Version 4` hat `JP` die Anordnung der grafischen Elemente weiter
+Mit dem Start von `Version 4` hat `Jean Pierre` die Anordnung der grafischen Elemente weiter
 verfeinert. Der Würfel-Button wurde mit einem individuellen Logo versehen, was nicht
 nur die Ästhetik, sondern auch die Benutzerfreundlichkeit verbessert. Ein weiteres
 wichtiges Update war die Gestaltung der Buttons im Startbildschirm, die nun
@@ -155,7 +155,7 @@ gearbeitet, das bedeutet, Entwicklungen werden schrittweise verfeinert. Wir habe
 uns einmal in der Woche in der Schule für eine Doppelstunde zusammengesetzt und
 zusammen an der Software gearbeitet. Dazu hatten wir die Gruppe in verschiedene
 Abteilungen eingeteilt, wie z.B. die Developer (`Noah`, `Philipp`), Design (`Mohammad`,
-`Asmen`) und den Gruppenleiter (`JP`), der auch an dem `GUI` gearbeitet hat.
+`Asmen`) und den Gruppenleiter (`Jean Pierre`), der auch an dem `GUI` gearbeitet hat.
 
 ## Wie ist die Arbeit verlaufen?
 
