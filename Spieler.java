@@ -43,7 +43,13 @@ public class Spieler {
   //Methode zum beenden eines Durchgangs
 
   public void durchgangBeenden() {
+    
+    
+    
     if (siebengewuerfelt == false) {
+      if (schiedsrichter.ultbeginner != this) {
+        schiedsrichter.Auswerten();
+      }
       this.darfWuerfeln = false;
       schiedsrichter.spielStarten();
     } else {
