@@ -18,7 +18,6 @@ public class StartPanelGUI {
 
   public static void main(String[] args) {
     schiedsrichter = new Schiedsrichter();
-    
 
     // StartFrame
     JFrame frame = new JFrame();
@@ -54,6 +53,20 @@ public class StartPanelGUI {
     backgroundLabelStart.setBounds(0, 0, 1920, 1080);
     backgroundLabelStart.setVisible(true);
     startPanel.add(backgroundLabelStart);
+
+   // rechts gewinnt links verliert Screen
+   ImageIcon winR = new ImageIcon("rechtsGewinnt.png");
+   JLabel winRLabel = new JLabel(winR);
+   winRLabel.setBounds(0,0,1290,1080);
+   winRLabel.setVisible(false);
+   startButton.add(winRLabel);
+
+   //links gewinnt rechts verliert Screen
+   ImageIcon winL = new ImageIcon("linksGewinnt.png");
+   JLabel winLlabel = new JLabel(winL);
+   winLlabel.setBounds(0,0,1290,1080);
+   winLlabel.setVisible(false);
+   startButton.add(winLlabel);
 
     // Textfield Konto Links
     textFieldL.setText("Konto : " + schiedsrichter.spieler1.vermoegen);
@@ -130,7 +143,7 @@ public class StartPanelGUI {
     wuerfelButtonL.setBorderPainted(false);
     wuerfelButtonL.setFocusPainted(false);
 
-    //Hintergrund des  Wuerfelbuttons
+    // Hintergrund des Wuerfelbuttons
     ImageIcon rollDice = new ImageIcon("rollDice.png");
     Image imgRDice = rollDice.getImage();
     Image rDice = imgRDice.getScaledInstance(120, 120, Image.SCALE_SMOOTH);
@@ -141,7 +154,7 @@ public class StartPanelGUI {
 
     startPanel.add(wuerfelButton);
 
-    //Hintergrund des linken WuerfelButtons
+    // Hintergrund des linken WuerfelButtons
     ImageIcon rollDiceL = new ImageIcon("rollDice.png");
     Image imgLDice = rollDiceL.getImage();
     Image lDice = imgRDice.getScaledInstance(120, 120, Image.SCALE_SMOOTH);
@@ -234,316 +247,278 @@ public class StartPanelGUI {
     startPanel.add(backgroundLabel);
 
     // Wuerfel1 Bild
-    ImageIcon dice1 = new ImageIcon("D:/EGK/GUI/dice1.png");
-    Image img = dice1.getImage();
-    Image newImg = img.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
-    ImageIcon newDice1 = new ImageIcon(newImg);
-    JLabel dice1Label = new JLabel(newDice1);
-    dice1Label.setBounds(780, 430, 100, 100);
-    dice1Label.setVisible(false);
-    startPanel.add(dice1Label);
 
     cpButton.addActionListener(
-      new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
-          spielerbuttonL1.setVisible(true);
-          startButton.setVisible(false);
-          backgroundLabel.setVisible(true);
-          backgroundLabelStart.setVisible(false);
-          wuerfelButton.setVisible(false);
-          textFieldR.setVisible(true);
-          textFieldL.setVisible(true);
-          textFieldEinsatz.setVisible(true);
-          textFieldAnzahlWuerfeL.setVisible(true);
-          textFieldAnzahlWuerfeR.setVisible(true);
-          textFieldAugenzahl.setVisible(true);
-          zButton.setVisible(true);
-          cpButton.setVisible(false);
+        new ActionListener() {
+          public void actionPerformed(ActionEvent e) {
+            spielerbuttonL1.setVisible(true);
+            startButton.setVisible(false);
+            backgroundLabel.setVisible(true);
+            backgroundLabelStart.setVisible(false);
+            wuerfelButton.setVisible(false);
+            textFieldR.setVisible(true);
+            textFieldL.setVisible(true);
+            textFieldEinsatz.setVisible(true);
+            textFieldAnzahlWuerfeL.setVisible(true);
+            textFieldAnzahlWuerfeR.setVisible(true);
+            textFieldAugenzahl.setVisible(true);
+            zButton.setVisible(true);
+            cpButton.setVisible(false);
 
-          schiedsrichtercp = new Schiedsrichter(true);
+            schiedsrichtercp = new Schiedsrichter(true);
 
-        }
-      }
-    );
+          }
+        });
 
     // Popups wenn Startbutton gedrückt
     startButton.addActionListener(
-      new ActionListener() {
-        public void actionPerformed(ActionEvent a) {
-          startButton.setVisible(false);
-          backgroundLabel.setVisible(true);
-          backgroundLabelStart.setVisible(false);
-          wuerfelButton.setVisible(true);
-          textFieldR.setVisible(true);
-          textFieldL.setVisible(true);
-          textFieldEinsatz.setVisible(true);
-          textFieldAnzahlWuerfeL.setVisible(true);
-          textFieldAnzahlWuerfeR.setVisible(true);
-          textFieldAugenzahl.setVisible(true);
-          zButton.setVisible(true);
-          cpButton.setVisible(false);
+        new ActionListener() {
+          public void actionPerformed(ActionEvent a) {
+            startButton.setVisible(false);
+            backgroundLabel.setVisible(true);
+            backgroundLabelStart.setVisible(false);
+            wuerfelButton.setVisible(true);
+            textFieldR.setVisible(true);
+            textFieldL.setVisible(true);
+            textFieldEinsatz.setVisible(true);
+            textFieldAnzahlWuerfeL.setVisible(true);
+            textFieldAnzahlWuerfeR.setVisible(true);
+            textFieldAugenzahl.setVisible(true);
+            zButton.setVisible(true);
+            cpButton.setVisible(false);
 
-          resetZButton();
+            resetZButton();
 
-          if (schiedsrichter.spieler1.getDarfWuerfeln() == true) {
-            spielerbuttonR1.setVisible(false);
-            spielerbuttonL1.setVisible(true);
-          } else {
-            spielerbuttonR1.setVisible(true);
-            spielerbuttonL1.setVisible(false);
+            if (schiedsrichter.spieler1.getDarfWuerfeln() == true) {
+              spielerbuttonR1.setVisible(false);
+              spielerbuttonL1.setVisible(true);
+            } else {
+              spielerbuttonR1.setVisible(true);
+              spielerbuttonL1.setVisible(false);
+            }
           }
-        }
-      }
-    );
+        });
 
     // Rechte Seite popup der Conbutton, wenn button spielerLButtonR1 gedrückt
     spielerbuttonR1.addActionListener(
-      new ActionListener() {
-        public void actionPerformed(ActionEvent b) {
-          coinButtonR2.setVisible(true);
-          coinButtonR3.setVisible(true);
-          coinButtonR4.setVisible(true);
-          coinButtonR5.setVisible(true);
-          dEndButtonR.setVisible(true);
-        }
-      }
-    );
+        new ActionListener() {
+          public void actionPerformed(ActionEvent b) {
+            coinButtonR2.setVisible(true);
+            coinButtonR3.setVisible(true);
+            coinButtonR4.setVisible(true);
+            coinButtonR5.setVisible(true);
+            dEndButtonR.setVisible(true);
+          }
+        });
 
     wuerfelButton.addActionListener(
-      new ActionListener() {
-        public void actionPerformed(ActionEvent w) {
-          dice1Label.setVisible(true);
-          startPanel.setComponentZOrder(dice1Label, 0);
+        new ActionListener() {
+          public void actionPerformed(ActionEvent w) {
 
-          schiedsrichter.spieler2.wuerfeln();
-          int augenzahl = schiedsrichter.wuerfel1.punkte + schiedsrichter.wuerfel2.punkte;
-          updateAugenzahl();
-          updateWurfanzahlR();
+            schiedsrichter.spieler2.wuerfeln();
+            int augenzahl = schiedsrichter.wuerfel1.punkte + schiedsrichter.wuerfel2.punkte;
+            updateAugenzahl();
+            updateWurfanzahlR();
 
-          if (augenzahl == 0) {
-            spielerbuttonR1.setVisible(false);
-            coinButtonR2.setVisible(false);
-            coinButtonR4.setVisible(false);
-            coinButtonR5.setVisible(false);
-            coinButtonR3.setVisible(false);
-            dEndButtonR.setVisible(false);
+            if (augenzahl == 0) {
+              spielerbuttonR1.setVisible(false);
+              coinButtonR2.setVisible(false);
+              coinButtonR4.setVisible(false);
+              coinButtonR5.setVisible(false);
+              coinButtonR3.setVisible(false);
+              dEndButtonR.setVisible(false);
 
-            spielerbuttonL1.setVisible(true);
-            textFieldAugenzahl.setText("Augenzahl : 7");
+              spielerbuttonL1.setVisible(true);
+              textFieldAugenzahl.setText("Augenzahl : 7");
 
-            schiedsrichter.Auswerten();
-            schiedsrichter.spielStarten();
-            updateEinsatzGUI();
-            updateVermoegenS1();
-            updateVermoegenS2();
+              schiedsrichter.Auswerten();
+              schiedsrichter.spielStarten();
+              updateEinsatzGUI();
+              updateVermoegenS1();
+              updateVermoegenS2();
+            }
           }
-        }
-      }
-    );
+        });
 
     wuerfelButtonL.addActionListener(
-      new ActionListener() {
-        public void actionPerformed(ActionEvent w) {
-          dice1Label.setVisible(true);
-          startPanel.setComponentZOrder(dice1Label, 0);
+        new ActionListener() {
+          public void actionPerformed(ActionEvent w) {
 
-          schiedsrichter.spieler1.wuerfeln();
-          int augenzahl = schiedsrichter.wuerfel1.punkte + schiedsrichter.wuerfel2.punkte;
-          updateAugenzahl();
-          updateWurfanzahlL();
-          if (augenzahl == 0) {
-            spielerbuttonL1.setVisible(false);
-            coinButtonL2.setVisible(false);
-            coinButtonL4.setVisible(false);
-            coinButtonL5.setVisible(false);
-            coinButtonL3.setVisible(false);
-            dEndButtonL.setVisible(false);
+            schiedsrichter.spieler1.wuerfeln();
+            int augenzahl = schiedsrichter.wuerfel1.punkte + schiedsrichter.wuerfel2.punkte;
+            updateAugenzahl();
+            updateWurfanzahlL();
+            if (augenzahl == 0) {
+              spielerbuttonL1.setVisible(false);
+              coinButtonL2.setVisible(false);
+              coinButtonL4.setVisible(false);
+              coinButtonL5.setVisible(false);
+              coinButtonL3.setVisible(false);
+              dEndButtonL.setVisible(false);
 
-            spielerbuttonL1.setVisible(true);
-            textFieldAugenzahl.setText("Augenzahl: 7");
+              spielerbuttonL1.setVisible(true);
+              textFieldAugenzahl.setText("Augenzahl: 7");
 
-            schiedsrichter.Auswerten();
-            schiedsrichter.spielStarten();
-            updateEinsatzGUI();
-            updateVermoegenS2();
-            updateVermoegenS1();
+              schiedsrichter.Auswerten();
+              schiedsrichter.spielStarten();
+              updateEinsatzGUI();
+              updateVermoegenS2();
+              updateVermoegenS1();
+            }
           }
-        }
-      }
-    );
+        });
 
     zButton.addActionListener(
-      new ActionListener() {
-        public void actionPerformed(ActionEvent d) {
-          zButton.setVisible(false);
-          spielerbuttonR1.setVisible(false);
-          spielerbuttonL1.setVisible(false);
-          startButton.setVisible(true);
-          backgroundLabel.setVisible(true);
-          backgroundLabelStart.setVisible(true);
-          wuerfelButton.setVisible(false);
-          textFieldR.setVisible(false);
-          textFieldL.setVisible(false);
-          textFieldEinsatz.setVisible(false);
-          textFieldAnzahlWuerfeL.setVisible(false);
-          textFieldAnzahlWuerfeR.setVisible(false);
-          textFieldAugenzahl.setVisible(false);
-          coinButtonR2.setVisible(false);
-          coinButtonR3.setVisible(false);
-          coinButtonR4.setVisible(false);
-          coinButtonR5.setVisible(false);
-          coinButtonL2.setVisible(false);
-          coinButtonL3.setVisible(false);
-          coinButtonL4.setVisible(false);
-          coinButtonL5.setVisible(false);
-          dice1Label.setVisible(false);
-          cpButton.setVisible(true);
-        }
-      }
-    );
+        new ActionListener() {
+          public void actionPerformed(ActionEvent d) {
+            zButton.setVisible(false);
+            spielerbuttonR1.setVisible(false);
+            spielerbuttonL1.setVisible(false);
+            startButton.setVisible(true);
+            backgroundLabel.setVisible(true);
+            backgroundLabelStart.setVisible(true);
+            wuerfelButton.setVisible(false);
+            textFieldR.setVisible(false);
+            textFieldL.setVisible(false);
+            textFieldEinsatz.setVisible(false);
+            textFieldAnzahlWuerfeL.setVisible(false);
+            textFieldAnzahlWuerfeR.setVisible(false);
+            textFieldAugenzahl.setVisible(false);
+            coinButtonR2.setVisible(false);
+            coinButtonR3.setVisible(false);
+            coinButtonR4.setVisible(false);
+            coinButtonR5.setVisible(false);
+            coinButtonL2.setVisible(false);
+            coinButtonL3.setVisible(false);
+            coinButtonL4.setVisible(false);
+            coinButtonL5.setVisible(false);
+            cpButton.setVisible(true);
+            dEndButtonR.setVisible(false);
+            dEndButtonL.setVisible(false);
+          }
+        });
 
     // Linke Seite popup der Conbutton, wenn button spielerLButtonL1 gedrückt
     spielerbuttonL1.addActionListener(
-      new ActionListener() {
-        public void actionPerformed(ActionEvent c) {
-          coinButtonL2.setVisible(true);
-          coinButtonL3.setVisible(true);
-          coinButtonL4.setVisible(true);
-          coinButtonL5.setVisible(true);
-          dEndButtonL.setVisible(true);
-        }
-      }
-    );
+        new ActionListener() {
+          public void actionPerformed(ActionEvent c) {
+            coinButtonL2.setVisible(true);
+            coinButtonL3.setVisible(true);
+            coinButtonL4.setVisible(true);
+            coinButtonL5.setVisible(true);
+            dEndButtonL.setVisible(true);
+          }
+        });
 
     coinButtonL2.addActionListener(
-      new ActionListener() {
-        public void actionPerformed(ActionEvent c) {
-          schiedsrichter.spieler1.einsatzSetzen(1000);
-          updateVermoegenS1();
-          updateEinsatzGUI();
-        }
-      }
-    );
+        new ActionListener() {
+          public void actionPerformed(ActionEvent c) {
+            schiedsrichter.spieler1.einsatzSetzen(1000);
+            updateVermoegenS1();
+            updateEinsatzGUI();
+          }
+        });
 
     coinButtonR2.addActionListener(
-      new ActionListener() {
-        public void actionPerformed(ActionEvent c) {
-          schiedsrichter.spieler2.einsatzSetzen(1000);
-          updateVermoegenS2();
-          updateEinsatzGUI();
-        }
-      }
-    );
+        new ActionListener() {
+          public void actionPerformed(ActionEvent c) {
+            schiedsrichter.spieler2.einsatzSetzen(1000);
+            updateVermoegenS2();
+            updateEinsatzGUI();
+          }
+        });
 
     coinButtonR3.addActionListener(
-      new ActionListener() {
-        public void actionPerformed(ActionEvent c) {
-          schiedsrichter.spieler2.einsatzSetzen(200);
-          updateVermoegenS2();
-          updateEinsatzGUI();
-        }
-      }
-    );
+        new ActionListener() {
+          public void actionPerformed(ActionEvent c) {
+            schiedsrichter.spieler2.einsatzSetzen(200);
+            updateVermoegenS2();
+            updateEinsatzGUI();
+          }
+        });
 
     coinButtonL3.addActionListener(
-      new ActionListener() {
-        public void actionPerformed(ActionEvent c) {
-          schiedsrichter.spieler1.einsatzSetzen(200);
-          updateVermoegenS1();
-          updateEinsatzGUI();
-        }
-      }
-    );
+        new ActionListener() {
+          public void actionPerformed(ActionEvent c) {
+            schiedsrichter.spieler1.einsatzSetzen(200);
+            updateVermoegenS1();
+            updateEinsatzGUI();
+          }
+        });
 
     coinButtonR4.addActionListener(
-      new ActionListener() {
-        public void actionPerformed(ActionEvent c) {
-          schiedsrichter.spieler2.einsatzSetzen(100);
-          updateVermoegenS2();
-          updateEinsatzGUI();
-        }
-      }
-    );
+        new ActionListener() {
+          public void actionPerformed(ActionEvent c) {
+            schiedsrichter.spieler2.einsatzSetzen(100);
+            updateVermoegenS2();
+            updateEinsatzGUI();
+          }
+        });
 
     coinButtonL4.addActionListener(
-      new ActionListener() {
-        public void actionPerformed(ActionEvent c) {
-          schiedsrichter.spieler1.einsatzSetzen(100);
-          updateVermoegenS1();
-          updateEinsatzGUI();
-        }
-      }
-    );
+        new ActionListener() {
+          public void actionPerformed(ActionEvent c) {
+            schiedsrichter.spieler1.einsatzSetzen(100);
+            updateVermoegenS1();
+            updateEinsatzGUI();
+          }
+        });
 
     coinButtonL5.addActionListener(
-      new ActionListener() {
-        public void actionPerformed(ActionEvent c) {
-          schiedsrichter.spieler1.einsatzSetzen(
-            schiedsrichter.spieler1.vermoegen
-          );
-          updateVermoegenS1();
-          updateEinsatzGUI();
-        }
-      }
-    );
+        new ActionListener() {
+          public void actionPerformed(ActionEvent c) {
+            schiedsrichter.spieler1.einsatzSetzen(
+                schiedsrichter.spieler1.vermoegen);
+            updateVermoegenS1();
+            updateEinsatzGUI();
+          }
+        });
 
     coinButtonR5.addActionListener(
-      new ActionListener() {
-        public void actionPerformed(ActionEvent c) {
-          schiedsrichter.spieler2.einsatzSetzen(
-            schiedsrichter.spieler2.vermoegen
-          );
-          updateVermoegenS2();
-          updateEinsatzGUI();
-        }
-      }
-    );
+        new ActionListener() {
+          public void actionPerformed(ActionEvent c) {
+            schiedsrichter.spieler2.einsatzSetzen(
+                schiedsrichter.spieler2.vermoegen);
+            updateVermoegenS2();
+            updateEinsatzGUI();
+          }
+        });
 
     dEndButtonR.addActionListener(
-      new ActionListener() {
-        public void actionPerformed(ActionEvent c) {
-          if (schiedsrichter.nichtBeginner == schiedsrichter.spieler2) {
-            schiedsrichter.Auswerten();
-          } else {
-            schiedsrichter.spieler2.durchgangBeenden();
-            spielerbuttonR1.setVisible(false);
-            spielerbuttonL1.setVisible(true);
-            coinButtonR2.setVisible(false);
-            coinButtonR3.setVisible(false);
-            coinButtonR4.setVisible(false);
-            coinButtonR5.setVisible(false);
-            dEndButtonR.setVisible(false);
+        new ActionListener() {
+          public void actionPerformed(ActionEvent c) {
+            if (schiedsrichter.nichtBeginner == schiedsrichter.spieler2) {
+              schiedsrichter.Auswerten();
+            } else {
+              schiedsrichter.spieler2.durchgangBeenden();
+              spielerbuttonR1.setVisible(false);
+              spielerbuttonL1.setVisible(true);
+              coinButtonR2.setVisible(false);
+              coinButtonR3.setVisible(false);
+              coinButtonR4.setVisible(false);
+              coinButtonR5.setVisible(false);
+              dEndButtonR.setVisible(false);
+            }
           }
-        }
-      }
-    );
+        });
 
     dEndButtonL.addActionListener(
-      new ActionListener() {
-        public void actionPerformed(ActionEvent c) {
-          if(schiedsrichtercp.compaktiv == true){
-            schiedsrichtercp.comp.compdurchgangstart();
+        new ActionListener() {
+          public void actionPerformed(ActionEvent c) {
+            if (schiedsrichter.nichtBeginner == schiedsrichter.spieler1) {
+              schiedsrichter.Auswerten();
+            } else {
+              schiedsrichter.spieler1.durchgangBeenden();
+              spielerbuttonL1.setVisible(false);
+              spielerbuttonR1.setVisible(true);
+              coinButtonL2.setVisible(false);
+              coinButtonL3.setVisible(false);
+              coinButtonL4.setVisible(false);
+              coinButtonL5.setVisible(false);
+              dEndButtonL.setVisible(false);
+            }
           }
-
-
-
-
-
-          if (schiedsrichter.nichtBeginner == schiedsrichter.spieler1) {
-            schiedsrichter.Auswerten();
-          } else {
-            schiedsrichter.spieler1.durchgangBeenden();
-            spielerbuttonL1.setVisible(false);
-            spielerbuttonR1.setVisible(true);
-            coinButtonL2.setVisible(false);
-            coinButtonL3.setVisible(false);
-            coinButtonL4.setVisible(false);
-            coinButtonL5.setVisible(false);
-            dEndButtonL.setVisible(false);
-          }
-        }
-      }
-    );
+        });
 
     startPanel.setVisible(true);
     frame.add(startPanel);
@@ -574,8 +549,7 @@ public class StartPanelGUI {
   }
 
   public static void updateAugenzahl() {
-    int currentValue =
-      schiedsrichter.wuerfel1.punkte + schiedsrichter.wuerfel2.punkte;
+    int currentValue = schiedsrichter.wuerfel1.punkte + schiedsrichter.wuerfel2.punkte;
     textFieldAugenzahl.setText("Augenzahl : " + currentValue);
   }
 
@@ -583,8 +557,16 @@ public class StartPanelGUI {
     int currentValue = schiedsrichter.spieler1.wurfAnzahl;
     textFieldAnzahlWuerfeL.setText("Wuerfe : " + currentValue);
   }
-  public static void updateWurfanzahlR(){
-  int currentValue = schiedsrichter.spieler2.wurfAnzahl;
+
+  public static void updateWurfanzahlR() {
+    int currentValue = schiedsrichter.spieler2.wurfAnzahl;
     textFieldAnzahlWuerfeR.setText("Wuerfe : " + currentValue);
+  }
+
+  public static void updateGUI() {
+    updateAugenzahl();
+    updateEinsatzGUI();
+    updateWurfanzahlL();
+    updateWurfanzahlR();
   }
 }
