@@ -14,7 +14,6 @@ public class StartPanelGUI {
   private static JTextField textFieldAnzahlWuerfeL = new JTextField();
   private static JTextField textFieldAnzahlWuerfeR = new JTextField();
   private static Schiedsrichter schiedsrichter;
-  private static Schiedsrichter schiedsrichtercp;
 
   public static void main(String[] args) {
     schiedsrichter = new Schiedsrichter();
@@ -89,8 +88,6 @@ public class StartPanelGUI {
     startPanel.add(textFieldR);
 
     // Textfield Einsatz Topf
-    schiedsrichter.spieler1.einsatzSetzen(200);
-
     textFieldEinsatz.setText("Einsatz : " + schiedsrichter.topf1.einsatz);
     textFieldEinsatz.setOpaque(false);
     textFieldEinsatz.setForeground(new Color(255, 255, 255));
@@ -157,7 +154,7 @@ public class StartPanelGUI {
     // Hintergrund des linken WuerfelButtons
     ImageIcon rollDiceL = new ImageIcon("rollDice.png");
     Image imgLDice = rollDiceL.getImage();
-    Image lDice = imgRDice.getScaledInstance(120, 120, Image.SCALE_SMOOTH);
+    Image lDice = imgLDice.getScaledInstance(120, 120, Image.SCALE_SMOOTH);
     ImageIcon newLDice = new ImageIcon(lDice);
     wuerfelButtonL.setIcon(newLDice);
     wuerfelButtonL.setHorizontalTextPosition(JButton.CENTER);
@@ -246,8 +243,7 @@ public class StartPanelGUI {
     backgroundLabel.setVisible(false);
     startPanel.add(backgroundLabel);
 
-    // Wuerfel1 Bild
-
+    //Button für den Start in den Spieler vs Computer Modus
     cpButton.addActionListener(
         new ActionListener() {
           public void actionPerformed(ActionEvent e) {
@@ -265,12 +261,12 @@ public class StartPanelGUI {
             zButton.setVisible(true);
             cpButton.setVisible(false);
 
-            schiedsrichtercp = new Schiedsrichter(true);
+            schiedsrichter = new Schiedsrichter(true);
 
           }
         });
 
-    // Popups wenn Startbutton gedrückt
+    // Popups wenn Startbutton ( 2 Spieler ) gedrückt
     startButton.addActionListener(
         new ActionListener() {
           public void actionPerformed(ActionEvent a) {
@@ -310,7 +306,7 @@ public class StartPanelGUI {
             dEndButtonR.setVisible(true);
           }
         });
-
+        //Aktionen des WuerfelButtons auf der rechten Seite
     wuerfelButton.addActionListener(
         new ActionListener() {
           public void actionPerformed(ActionEvent w) {
@@ -339,7 +335,7 @@ public class StartPanelGUI {
             }
           }
         });
-
+        //Aktionen des WuerfelButtons auf der linken Seite
     wuerfelButtonL.addActionListener(
         new ActionListener() {
           public void actionPerformed(ActionEvent w) {
@@ -368,6 +364,7 @@ public class StartPanelGUI {
           }
         });
 
+    //Der Zurückbutton sorgt dafür, dass der Startscreen angezeigt wird, wo man wieder die verschiedenen Modi auswählen kann
     zButton.addActionListener(
         new ActionListener() {
           public void actionPerformed(ActionEvent d) {
@@ -395,6 +392,7 @@ public class StartPanelGUI {
             cpButton.setVisible(true);
             dEndButtonR.setVisible(false);
             dEndButtonL.setVisible(false);
+
           }
         });
 
@@ -524,7 +522,7 @@ public class StartPanelGUI {
     frame.add(startPanel);
     frame.setVisible(true);
   }
-
+ //Update Methoden :
   public static void updateEinsatzGUI() {
     int currentValue = schiedsrichter.topf1.einsatz;
     textFieldEinsatz.setText("Einsatz : " + currentValue);
@@ -561,12 +559,5 @@ public class StartPanelGUI {
   public static void updateWurfanzahlR() {
     int currentValue = schiedsrichter.spieler2.wurfAnzahl;
     textFieldAnzahlWuerfeR.setText("Wuerfe : " + currentValue);
-  }
-
-  public static void updateGUI() {
-    updateAugenzahl();
-    updateEinsatzGUI();
-    updateWurfanzahlL();
-    updateWurfanzahlR();
   }
 }
