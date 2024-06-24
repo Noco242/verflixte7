@@ -24,7 +24,7 @@ public class Computer extends Spieler{
                wuerfeln(); 
         
 
-        if (gegner.wurfAnzahl < this.wurfAnzahl || this.punkte < gegner.punkte) {
+        if (gegner.getWurfAnzahl() < getWurfAnzahl() || getPunkte() < gegner.getPunkte()) {
             
             stop = true;
 

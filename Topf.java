@@ -7,11 +7,11 @@
 
 public class Topf {
 
-  public int einsatz;
+  private int _einsatz;
 
   public Topf() {
     // der Einsatz wird auf 0 gesetzt
-    this.einsatz = 0;
+    this._einsatz = 0;
   }
 
   /**
@@ -19,8 +19,8 @@ public class Topf {
    * Gibt die Summe, die im Topf liegt, zurueck und leert den Topf.
    */
   public int einsatzAbgeben() {
-    int einsatz2 = this.einsatz;
-    this.einsatz = 0;
+    int einsatz2 = getEinsatz();
+    setEinsatz(0);
     return einsatz2;
   }
 
@@ -29,12 +29,23 @@ public class Topf {
    */
   public void einsatzAufnehmen(int einsatz) {
 
-    this.einsatz = this.einsatz + einsatz;
+    setEinsatz(getEinsatz() + einsatz);
 
   }
 
   public void topfReset(){
-    this.einsatz = 0;
 
+    setEinsatz(0);
+
+  }
+
+  public int getEinsatz(){
+
+    return this._einsatz;
+  }
+
+  public void setEinsatz(int einsatz){
+
+    this._einsatz = einsatz;
   }
 }

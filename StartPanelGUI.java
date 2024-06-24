@@ -68,7 +68,7 @@ public class StartPanelGUI {
    startButton.add(winLlabel);
 
     // Textfield Konto Links
-    textFieldL.setText("Konto : " + schiedsrichter.spieler1.vermoegen);
+    textFieldL.setText("Konto : " + schiedsrichter.getSpieler1().getVermoegen());
     textFieldL.setOpaque(false);
     textFieldL.setForeground(new Color(255, 255, 255));
     textFieldL.setFont(new FontUIResource("Bahnschrift", 3, 20));
@@ -78,7 +78,7 @@ public class StartPanelGUI {
     startPanel.add(textFieldL);
 
     // Textfield Konto Rechts
-    textFieldR.setText("Konto : " + schiedsrichter.spieler2.vermoegen);
+    textFieldR.setText("Konto : " + schiedsrichter.getSpieler2().getVermoegen());
     textFieldR.setBounds(1500, 10, 150, 30);
     textFieldR.setOpaque(false);
     textFieldR.setForeground(new Color(255, 255, 255));
@@ -88,7 +88,7 @@ public class StartPanelGUI {
     startPanel.add(textFieldR);
 
     // Textfield Einsatz Topf
-    textFieldEinsatz.setText("Einsatz : " + schiedsrichter.topf1.einsatz);
+    textFieldEinsatz.setText("Einsatz : " + schiedsrichter.getTopf1().getEinsatz());
     textFieldEinsatz.setOpaque(false);
     textFieldEinsatz.setForeground(new Color(255, 255, 255));
     textFieldEinsatz.setFont(new FontUIResource("Bahnschrift", 3, 20));
@@ -285,7 +285,7 @@ public class StartPanelGUI {
 
             resetZButton();
 
-            if (schiedsrichter.spieler1.getDarfWuerfeln() == true) {
+            if (schiedsrichter.getSpieler1().getDarfWuerfeln() == true) {
               spielerbuttonR1.setVisible(false);
               spielerbuttonL1.setVisible(true);
             } else {
@@ -311,8 +311,8 @@ public class StartPanelGUI {
         new ActionListener() {
           public void actionPerformed(ActionEvent w) {
 
-            schiedsrichter.spieler2.wuerfeln();
-            int augenzahl = schiedsrichter.wuerfel1.punkte + schiedsrichter.wuerfel2.punkte;
+            schiedsrichter.getSpieler2().wuerfeln();
+            int augenzahl = schiedsrichter.getWuerfel1().getPunkte() + schiedsrichter.getWuerfel2().getPunkte();
             updateAugenzahl();
             updateWurfanzahlR();
 
@@ -340,8 +340,8 @@ public class StartPanelGUI {
         new ActionListener() {
           public void actionPerformed(ActionEvent w) {
 
-            schiedsrichter.spieler1.wuerfeln();
-            int augenzahl = schiedsrichter.wuerfel1.punkte + schiedsrichter.wuerfel2.punkte;
+            schiedsrichter.getSpieler1().wuerfeln();
+            int augenzahl = schiedsrichter.getWuerfel1().getPunkte() + schiedsrichter.getWuerfel2().getPunkte();
             updateAugenzahl();
             updateWurfanzahlL();
             if (augenzahl == 0) {
@@ -411,7 +411,7 @@ public class StartPanelGUI {
     coinButtonL2.addActionListener(
         new ActionListener() {
           public void actionPerformed(ActionEvent c) {
-            schiedsrichter.spieler1.einsatzSetzen(1000);
+            schiedsrichter.getSpieler1().einsatzSetzen(1000);
             updateVermoegenS1();
             updateEinsatzGUI();
           }
@@ -420,7 +420,7 @@ public class StartPanelGUI {
     coinButtonR2.addActionListener(
         new ActionListener() {
           public void actionPerformed(ActionEvent c) {
-            schiedsrichter.spieler2.einsatzSetzen(1000);
+            schiedsrichter.getSpieler2().einsatzSetzen(1000);
             updateVermoegenS2();
             updateEinsatzGUI();
           }
@@ -429,7 +429,7 @@ public class StartPanelGUI {
     coinButtonR3.addActionListener(
         new ActionListener() {
           public void actionPerformed(ActionEvent c) {
-            schiedsrichter.spieler2.einsatzSetzen(200);
+            schiedsrichter.getSpieler2().einsatzSetzen(200);
             updateVermoegenS2();
             updateEinsatzGUI();
           }
@@ -438,7 +438,7 @@ public class StartPanelGUI {
     coinButtonL3.addActionListener(
         new ActionListener() {
           public void actionPerformed(ActionEvent c) {
-            schiedsrichter.spieler1.einsatzSetzen(200);
+            schiedsrichter.getSpieler1().einsatzSetzen(200);
             updateVermoegenS1();
             updateEinsatzGUI();
           }
@@ -447,7 +447,7 @@ public class StartPanelGUI {
     coinButtonR4.addActionListener(
         new ActionListener() {
           public void actionPerformed(ActionEvent c) {
-            schiedsrichter.spieler2.einsatzSetzen(100);
+            schiedsrichter.getSpieler2().einsatzSetzen(100);
             updateVermoegenS2();
             updateEinsatzGUI();
           }
@@ -456,7 +456,7 @@ public class StartPanelGUI {
     coinButtonL4.addActionListener(
         new ActionListener() {
           public void actionPerformed(ActionEvent c) {
-            schiedsrichter.spieler1.einsatzSetzen(100);
+            schiedsrichter.getSpieler1().einsatzSetzen(100);
             updateVermoegenS1();
             updateEinsatzGUI();
           }
@@ -465,8 +465,8 @@ public class StartPanelGUI {
     coinButtonL5.addActionListener(
         new ActionListener() {
           public void actionPerformed(ActionEvent c) {
-            schiedsrichter.spieler1.einsatzSetzen(
-                schiedsrichter.spieler1.vermoegen);
+            schiedsrichter.getSpieler1().einsatzSetzen(
+                schiedsrichter.getSpieler1().getVermoegen());
             updateVermoegenS1();
             updateEinsatzGUI();
           }
@@ -475,8 +475,8 @@ public class StartPanelGUI {
     coinButtonR5.addActionListener(
         new ActionListener() {
           public void actionPerformed(ActionEvent c) {
-            schiedsrichter.spieler2.einsatzSetzen(
-                schiedsrichter.spieler2.vermoegen);
+            schiedsrichter.getSpieler2().einsatzSetzen(
+                schiedsrichter.getSpieler2().getVermoegen());
             updateVermoegenS2();
             updateEinsatzGUI();
           }
@@ -485,10 +485,10 @@ public class StartPanelGUI {
     dEndButtonR.addActionListener(
         new ActionListener() {
           public void actionPerformed(ActionEvent c) {
-            if (schiedsrichter.nichtBeginner == schiedsrichter.spieler2) {
+            if (schiedsrichter.getNichtBeginner() == schiedsrichter.getSpieler2()) {
               schiedsrichter.Auswerten();
             } else {
-              schiedsrichter.spieler2.durchgangBeenden();
+              schiedsrichter.getSpieler2().durchgangBeenden();
               spielerbuttonR1.setVisible(false);
               spielerbuttonL1.setVisible(true);
               coinButtonR2.setVisible(false);
@@ -503,10 +503,10 @@ public class StartPanelGUI {
     dEndButtonL.addActionListener(
         new ActionListener() {
           public void actionPerformed(ActionEvent c) {
-            if (schiedsrichter.nichtBeginner == schiedsrichter.spieler1) {
+            if (schiedsrichter.getNichtBeginner() == schiedsrichter.getSpieler1()) {
               schiedsrichter.Auswerten();
             } else {
-              schiedsrichter.spieler1.durchgangBeenden();
+              schiedsrichter.getSpieler1().durchgangBeenden();
               spielerbuttonL1.setVisible(false);
               spielerbuttonR1.setVisible(true);
               coinButtonL2.setVisible(false);
@@ -524,17 +524,17 @@ public class StartPanelGUI {
   }
  //Update Methoden :
   public static void updateEinsatzGUI() {
-    int currentValue = schiedsrichter.topf1.einsatz;
+    int currentValue = schiedsrichter.getTopf1().getEinsatz();
     textFieldEinsatz.setText("Einsatz : " + currentValue);
   }
 
   public static void updateVermoegenS1() {
-    int currentValue = schiedsrichter.spieler1.vermoegen;
+    int currentValue = schiedsrichter.getSpieler1().getVermoegen();
     textFieldL.setText("Konto : " + currentValue);
   }
 
   public static void updateVermoegenS2() {
-    int currentValue = schiedsrichter.spieler2.vermoegen;
+    int currentValue = schiedsrichter.getSpieler2().getVermoegen();
     textFieldR.setText("Konto : " + currentValue);
   }
 
@@ -547,17 +547,44 @@ public class StartPanelGUI {
   }
 
   public static void updateAugenzahl() {
-    int currentValue = schiedsrichter.wuerfel1.punkte + schiedsrichter.wuerfel2.punkte;
+    int currentValue = schiedsrichter.getWuerfel1().getPunkte() + schiedsrichter.getWuerfel2().getPunkte();
     textFieldAugenzahl.setText("Augenzahl : " + currentValue);
   }
 
   public static void updateWurfanzahlL() {
-    int currentValue = schiedsrichter.spieler1.wurfAnzahl;
+    int currentValue = schiedsrichter.getSpieler1().getWurfAnzahl();
     textFieldAnzahlWuerfeL.setText("Wuerfe : " + currentValue);
   }
 
   public static void updateWurfanzahlR() {
-    int currentValue = schiedsrichter.spieler2.wurfAnzahl;
+    int currentValue = schiedsrichter.getSpieler2().getWurfAnzahl();
     textFieldAnzahlWuerfeR.setText("Wuerfe : " + currentValue);
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // Getter / Setter Methoden
+
+
+  public Schiedsrichter getSchiedsrichter() {
+    return this.schiedsrichter;
+  }
+  
+  public void setSchiedsrichter(Schiedsrichter schiedsrichter) {
+    this.schiedsrichter = schiedsrichter;
+  }
+
+
+
 }

@@ -8,12 +8,12 @@
 
 public class Wuerfel
 {
-    public int punkte;
+   private int _punkte;
 
     public Wuerfel()
     {
         // initialisiert die Augenzahl mit 0 
-        punkte = 0;
+        _punkte = 0;
     }
    
    /**
@@ -21,7 +21,7 @@ public class Wuerfel
     */
    public int punktzahlAngeben ()
    {
-      return this.punkte;
+      return this._punkte;
    }
    
    /**
@@ -44,13 +44,20 @@ public class Wuerfel
     */
    public void rollen ()
    {
-      this.punkte = zufallsZahlAusgeben(6);
+      setPunkte(zufallsZahlAusgeben(6));
    }
 
    public void reset(){
 
-      this.punkte = 0;
+      setPunkte(0);
+   }
 
+   public int getPunkte(){
+      return this._punkte;
+   }
+
+   public void setPunkte(int Punkte){
+      this._punkte = Punkte;
    }
 
 }

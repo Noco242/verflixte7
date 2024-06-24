@@ -1,64 +1,64 @@
 public class Schiedsrichter {
 
-  public Spieler spieler1;
-  public Spieler spieler2;
-  public Spieler beginner;
-  public Computer comp;
-  public Spieler nichtBeginner;
-  public Topf topf1;
-  public Wuerfel wuerfel1;
-  public Wuerfel wuerfel2;
-  public boolean compaktiv = false;
-  public Spieler ultbeginner;
-  public StartPanelGUI GUI;
+  private Spieler _spieler1;
+  private Spieler _spieler2;
+  private Spieler _beginner;
+  private Computer _comp;
+  private Spieler _nichtBeginner;
+  private Topf _topf1;
+  private Wuerfel _wuerfel1;
+  private Wuerfel _wuerfel2;
+  private boolean _compaktiv = false;
+  private Spieler _ultbeginner;
+  private StartPanelGUI _GUI;
 
   public Schiedsrichter() { // Initialisierung der Spieler
-    this.topf1 = new Topf();
-    this.wuerfel1 = new Wuerfel();
-    this.wuerfel2 = new Wuerfel();
+    this._topf1 = new Topf();
+    this._wuerfel1 = new Wuerfel();
+    this._wuerfel2 = new Wuerfel();
 
     Spieler spieler_1 = new Spieler(
       "spieler1",
-      wuerfel1,
-      wuerfel2,
-      topf1,
+      _wuerfel1,
+      _wuerfel2,
+      _topf1,
       this
     );
     Spieler spieler_2 = new Spieler(
       "spieler2",
-      wuerfel1,
-      wuerfel2,
-      topf1,
+      _wuerfel1,
+      _wuerfel2,
+      _topf1,
       this
     );
 
-    this.spieler1 = spieler_1;
-    this.spieler2 = spieler_2;
+    this._spieler1 = spieler_1;
+    this._spieler2 = spieler_2;
   }
 
   public Schiedsrichter(StartPanelGUI GUI) { // Initialisierung der Spieler
-    this.topf1 = new Topf();
-    this.wuerfel1 = new Wuerfel();
-    this.wuerfel2 = new Wuerfel();
-    this.GUI = GUI;
+    this._topf1 = new Topf();
+    this._wuerfel1 = new Wuerfel();
+    this._wuerfel2 = new Wuerfel();
+    this._GUI = GUI;
 
     Spieler spieler_1 = new Spieler(
       "spieler1",
-      wuerfel1,
-      wuerfel2,
-      topf1,
+      _wuerfel1,
+      _wuerfel2,
+      _topf1,
       this
     );
     Spieler spieler_2 = new Spieler(
       "spieler2",
-      wuerfel1,
-      wuerfel2,
-      topf1,
+      _wuerfel1,
+      _wuerfel2,
+      _topf1,
       this
     );
 
-    this.spieler1 = spieler_1;
-    this.spieler2 = spieler_2;
+    this._spieler1 = spieler_1;
+    this._spieler2 = spieler_2;
   }
 
   public Schiedsrichter(boolean Computeraktiv) { // Initialisierung der Spieler
@@ -90,55 +90,54 @@ public class Schiedsrichter {
     );
 
     if (Computeraktiv = true) {
-      this.spieler1 = spieler_1;
-      this.spieler1.compgegner = comp_1;
-      this.spieler2 = comp_1;
-      this.comp = comp_1;
-      this.compaktiv = true;
-    } else this.spieler1 = spieler_1;
-    this.spieler2 = spieler_2;
+      this._spieler1 = spieler_1;
+      this._spieler2 = comp_1;
+      this._comp = comp_1;
+      this._compaktiv = true;
+    } else this._spieler1 = spieler_1;
+    this._spieler2 = spieler_2;
   }
 
   //Methode zum starten des Spiels
   public void spielStarten() {
     // Überprüfen, ob keiner der Spieler würfeln darf
     if (
-      this.spieler1.getDarfWuerfeln() == false &&
-      this.spieler2.getDarfWuerfeln() == false &&
-      this.nichtBeginner == null
+      getSpieler1().getDarfWuerfeln() == false &&
+      getSpieler2().getDarfWuerfeln() == false &&
+      getNichtBeginner() == null
     ) {
       // Zufällig einen Wert zwischen 1 und 2 auswählen
       int wert = 0;
       wert = (int) Math.round(Math.random() * (2 - 1)) + 1;
       if (wert == 1) {
-        this.nichtBeginner = this.spieler1;
-        this.beginner = this.spieler2;
-        this.ultbeginner = this.spieler2;
+        setNichtBeginner(getSpieler1());
+        setBeginner(getSpieler2());
+        setUltbeginner(getSpieler2());
       } else {
-        this.nichtBeginner = this.spieler2;
-        this.beginner = this.spieler1;
-        this.ultbeginner = this.spieler1;
+        setNichtBeginner(getSpieler2());
+        setBeginner(getSpieler1());
+        setUltbeginner(getSpieler1());
       }
       // Den Spieler, der nicht beginnt, festlegen
-      if (this.nichtBeginner == this.spieler1) {
-        this.spieler1.setDarfWuerfeln(false);
-        this.spieler2.setDarfWuerfeln(true);
+      if (getNichtBeginner() == getSpieler1()) {
+        getSpieler1().setDarfWuerfeln(false);
+        getSpieler2().setDarfWuerfeln(true);
       } else {
-        this.spieler1.setDarfWuerfeln(true);
-        this.spieler2.setDarfWuerfeln(false);
+        getSpieler1().setDarfWuerfeln(true);
+        getSpieler2().setDarfWuerfeln(false);
       }
     } else {
       // Wenn ein Spieler nicht der Anfänger ist, die Würfelreihenfolge wechseln
-      if (this.nichtBeginner == this.spieler1) {
-        this.spieler1.setDarfWuerfeln(true);
-        this.spieler2.setDarfWuerfeln(false);
-        this.nichtBeginner = this.spieler2;
-        this.beginner = this.spieler1;
-      } else if (this.nichtBeginner == this.spieler2) {
-        this.spieler2.setDarfWuerfeln(true);
-        this.spieler1.setDarfWuerfeln(false);
-        this.nichtBeginner = this.spieler1;
-        this.beginner = this.spieler2;
+      if (getNichtBeginner() == getSpieler1()) {
+        getSpieler1().setDarfWuerfeln(true);
+        getSpieler2().setDarfWuerfeln(false);
+        setNichtBeginner(getSpieler2());
+        setBeginner(getSpieler1());
+      } else if (getNichtBeginner() == getSpieler2()) {
+        getSpieler2().setDarfWuerfeln(true);
+        getSpieler1().setDarfWuerfeln(false);
+        setNichtBeginner(getSpieler1());
+        setBeginner(getSpieler2());
       }
     }
 
@@ -146,8 +145,8 @@ public class Schiedsrichter {
   }
 
   public void startcomp() {
-    if (compaktiv && this.beginner == spieler2) {
-      this.comp.compdurchgangstart();
+    if (_compaktiv && getBeginner() == getSpieler2()) {
+      getComp().compdurchgangstart();
     }
   }
 
@@ -156,71 +155,186 @@ public class Schiedsrichter {
     boolean spieler1gewonnen = false;
     boolean spieler2gewonnen = false;
     // Überprüfen, ob Spieler 1 keine Sieben geworfen hat
-    if (this.spieler1.getsiebengewuerfelt() == false) {
+    if (getSpieler1().getsiebengewuerfelt() == false) {
       // Überprüfen, ob Spieler 1 eine höhere Punktzahl hat und weniger Würfe als Spieler 2
       if (
-        this.spieler1.punktestandAngeben() >
-        this.spieler2.punktestandAngeben() &&
-        this.spieler1.wurfAnzahlAngeben() <= this.spieler2.wurfAnzahlAngeben()
+        getSpieler1().punktestandAngeben() >
+        getSpieler2().punktestandAngeben() &&
+        getSpieler1().wurfAnzahlAngeben() <= getSpieler2().wurfAnzahlAngeben()
       ) {
         spieler1gewonnen = true;
       }
     }
 
     // Überprüfen, ob Spieler 2 keine Sieben geworfen hat
-    if (this.spieler2.getsiebengewuerfelt() == false) {
+    if (getSpieler2().getsiebengewuerfelt() == false) {
       // Überprüfen, ob Spieler 2 eine höhere Punktzahl hat und weniger Würfe als Spieler 1
       if (
-        this.spieler2.punktestandAngeben() >
-        this.spieler1.punktestandAngeben() &&
-        this.spieler2.wurfAnzahlAngeben() <= this.spieler1.wurfAnzahlAngeben()
+        getSpieler2().punktestandAngeben() >
+        getSpieler1().punktestandAngeben() &&
+        getSpieler2().wurfAnzahlAngeben() <= getSpieler1().wurfAnzahlAngeben()
       ) {
         spieler2gewonnen = true;
       }
     }
-    if (this.spieler2.getsiebengewuerfelt() == true) {
+    if (getSpieler2().getsiebengewuerfelt() == true) {
       // Überprüfen, ob Spieler 2 eine höhere Punktzahl hat und weniger Würfe als Spieler 1
       spieler1gewonnen = true;
     }
-    if (this.spieler1.getsiebengewuerfelt() == true) {
+    if (getSpieler1().getsiebengewuerfelt() == true) {
       // Überprüfen, ob Spieler 2 eine höhere Punktzahl hat und weniger Würfe als Spieler 1
       spieler2gewonnen = true;
     }
 
     //den Topf für den Gewinner leeren
     if (spieler1gewonnen == true) {
-      this.spieler1.topfLeeren();
+      getSpieler1().topfLeeren();
     } else if (spieler2gewonnen == true) {
-      this.spieler2.topfLeeren();
+      getSpieler2().topfLeeren();
     }
 
-    this.spieler1.setsiebengewuerfelt(false);
-    this.spieler2.setsiebengewuerfelt(false);
+    getSpieler1().setsiebengewuerfelt(false);
+    this._spieler2.setsiebengewuerfelt(false);
 
-    this.spieler1.wuerfel1.reset();
-    this.spieler1.wuerfel2.reset();
+    getSpieler1().getWuerfel1().reset();
+    getSpieler1().getWuerfel2().reset();
 
-    this.spieler1.punkte = 0;
-    this.spieler1.wurfAnzahl = 0;
+    
 
-    this.spieler2.punkte = 0;
-    this.spieler2.wurfAnzahl = 0;
 
-    this.beginner = null;
-    this.nichtBeginner = null;
+    getSpieler1().setPunkte(0);
+    getSpieler1().setWurfAnzahl(0);
+
+
+    getSpieler2().setPunkte(0);
+    getSpieler2().setWurfAnzahl(0);
+    setBeginner(null);
+    setNichtBeginner(null);
   }
 
   public String getnichtbeginner() {
-    return this.nichtBeginner.name;
+    return this._nichtBeginner.getName();
   }
 
   public void gameReset() {
-    this.spieler1.playerreset();
-    this.spieler2.playerreset();
-    this.spieler1.wuerfel1.reset();
-    this.spieler1.wuerfel2.reset();
-    this.spieler1.topf.topfReset();
-    this.beginner = null;
-    this.nichtBeginner = null;
+    getSpieler1().playerreset();
+    getSpieler2().playerreset();
+    getSpieler1().getWuerfel1().reset();
+    getSpieler1().getWuerfel2().reset();
+    getSpieler1().getTopf().topfReset();
+
+
+
+    setBeginner(null);
+    setNichtBeginner(null);
   }
+
+
+
+
+
+  // Getter / Setter Methoden
+
+  public Spieler getSpieler1() {
+    return _spieler1;
+  }
+
+  public void setSpieler1(Spieler spieler1) {
+    this._spieler1 = spieler1;
+  }
+
+  // Getter and setter for _spieler2
+  public Spieler getSpieler2() {
+    return _spieler2;
+  }
+
+  public void setSpieler2(Spieler spieler2) {
+    this._spieler2 = spieler2;
+  }
+
+  // Getter and setter for _beginner
+  public Spieler getBeginner() {
+    return _beginner;
+  }
+
+  public void setBeginner(Spieler beginner) {
+    this._beginner = beginner;
+  }
+
+  // Getter and setter for _comp
+  public Computer getComp() {
+    return _comp;
+  }
+
+  public void setComp(Computer comp) {
+    this._comp = comp;
+  }
+
+  // Getter and setter for _nichtBeginner
+  public Spieler getNichtBeginner() {
+    return _nichtBeginner;
+  }
+
+  public void setNichtBeginner(Spieler nichtBeginner) {
+    this._nichtBeginner = nichtBeginner;
+  }
+
+  // Getter and setter for _topf1
+  public Topf getTopf1() {
+    return _topf1;
+  }
+
+  public void setTopf1(Topf topf1) {
+    this._topf1 = topf1;
+  }
+
+  // Getter and setter for _wuerfel1
+  public Wuerfel getWuerfel1() {
+    return _wuerfel1;
+  }
+
+  public void setWuerfel1(Wuerfel wuerfel1) {
+    this._wuerfel1 = wuerfel1;
+  }
+
+  // Getter and setter for _wuerfel2
+  public Wuerfel getWuerfel2() {
+    return _wuerfel2;
+  }
+
+  public void setWuerfel2(Wuerfel wuerfel2) {
+    this._wuerfel2 = wuerfel2;
+  }
+
+  // Getter and setter for _compaktiv
+  public boolean isCompaktiv() {
+    return _compaktiv;
+  }
+
+  public void setCompaktiv(boolean compaktiv) {
+    this._compaktiv = compaktiv;
+  }
+
+  // Getter and setter for _ultbeginner
+  public Spieler getUltbeginner() {
+    return _ultbeginner;
+  }
+
+  public void setUltbeginner(Spieler ultbeginner) {
+    this._ultbeginner = ultbeginner;
+  }
+
+  // Getter and setter for _GUI
+  public StartPanelGUI getGUI() {
+    return _GUI;
+  }
+
+  public void setGUI(StartPanelGUI GUI) {
+    this._GUI = GUI;
+  }
+
+
+
+
+
 }
