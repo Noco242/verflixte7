@@ -4,7 +4,6 @@
     - Mohammad
     - Asmen
     - Philipp
-    - Asmen
 # Bericht
 
 Für unser Projekt `Die Verflixte 7` haben wir uns alle zusammengesetzt und
