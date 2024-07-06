@@ -1,64 +1,70 @@
 
+import java.util.Random;
+
 /**
  * Klasse Wuerfel
  * 
- * @author ...
- * @version 01
+ * Diese Klasse repräsentiert einen Würfel mit einer bestimmten Augenzahl.
  */
+public class Wuerfel {
+    private int _punkte; // Beibehaltung der Variablenbezeichnung _punkte
 
-public class Wuerfel
-{
-   private int _punkte;
-
-    public Wuerfel()
-    {
-        // initialisiert die Augenzahl mit 0 
-        _punkte = 0;
+    /**
+     * Konstruktor für den Würfel. Initialisiert die Augenzahl mit 0.
+     */
+    public Wuerfel() {
+        this._punkte = 0;
     }
-   
-   /**
-    * Diese Methode gibt die gewuerfelte Augenzahl zurueck.
-    */
-   public int punktzahlAngeben ()
-   {
-      return this._punkte;
-   }
-   
-   /**
-    * Diese Methode liefert einen Zufallswert zwischen 1 und einschliesslich maximum 
-   *   
-   *   //schlechte Implementierung, weil 1 und 6 nur halbs so oft gewuerfelt werden wegen round
-   * 
-   *   //Aufgabe: mit Java-Klasse Random besser machen!
-    */
-   
-   private int zufallsZahlAusgeben(int maximum)
-   { 
-      int wert=0;
-      wert =(int)Math.round(Math.random()*(maximum-1))+1;
-      return wert;
-   }
 
-   /**
-    * laesst den Wuerfel rollen
-    */
-   public void rollen ()
-   {
-      setPunkte(zufallsZahlAusgeben(6));
-   }
+    /**
+     * Gibt die aktuelle Augenzahl des Würfels zurück.
+     * 
+     * @return Die Augenzahl des Würfels.
+     */
+    public int punktzahlAngeben() {
+        return this._punkte;
+    }
 
-   public void reset(){
+    /**
+     * Setzt die Augenzahl des Würfels auf den angegebenen Wert.
+     * 
+     * @param punkte Die Augenzahl, die gesetzt werden soll.
+     */
+    public void setPunkte(int punkte) {
+        this._punkte = punkte;
+    }
 
-      setPunkte(0);
-   }
+    /**
+     * Lässt den Würfel rollen und setzt die Augenzahl auf einen zufälligen Wert zwischen 1 und maximum (einschließlich).
+     * 
+     * @param maximum Die maximale Augenzahl, die gewürfelt werden kann.
+     */
+    private int zufallsZahlAusgeben(int maximum) {
+        Random rand = new Random();
+        return rand.nextInt(maximum) + 1;
+    }
+
+    /**
+     * Lässt den Würfel rollen und setzt die Augenzahl entsprechend.
+     * 
+     * @param maximum Die maximale Augenzahl, die gewürfelt werden kann.
+     */
+    public void rollen(int maximum) {
+        this.setPunkte(zufallsZahlAusgeben(maximum));
+    }
+
+    /**
+     * Setzt die Augenzahl auf 0 zurück.
+     */
+    public void reset() {
+        this.setPunkte(0);
+    }
+
 
    public int getPunkte(){
       return this._punkte;
    }
 
-   public void setPunkte(int Punkte){
-      this._punkte = Punkte;
-   }
 
 }
 

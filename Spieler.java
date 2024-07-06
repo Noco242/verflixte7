@@ -88,8 +88,8 @@ public class Spieler {
     //Überprüfe, ob der Spieler darfWuerfeln hat
     
     if (darfWuerfelnAuswertung() == true) {
-      getWuerfel1().rollen();
-      getWuerfel2().rollen();
+      getWuerfel1().rollen(6);
+      getWuerfel2().rollen(6);
       
       if (getWuerfel1().punktzahlAngeben() + getWuerfel2().punktzahlAngeben() == 7) { // Falls 7 gewürfelt durchgang vorbei
         setsiebengewuerfelt(true);
